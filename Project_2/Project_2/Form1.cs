@@ -12,18 +12,22 @@ namespace Project_2
 {
     public partial class Form1 : Form
     {
-        int start_x;
-        int start_y;
+        public Form2 f2;
+        public int start_x;
+        public int start_y;
         int end_x;
         int end_y;
+        public bool dis;
         int number;
         public Form1()
         {
             InitializeComponent();
+           
             
         }
 
-        Label[,] table;
+        public Label[,] table;
+        
 
        
         private void table_MouseHover(object sender, EventArgs e)
@@ -97,13 +101,17 @@ namespace Project_2
                     }
                 }
             }
-
-            for(int i = start_y + 1; i <= end_y; i++)
+            if (start_y != end_y)
             {
-                table[start_x, i].Size = new Size(0, 0);
+                for (int i = start_y + 1; i <= end_y; i++)
+                {
+                    table[start_x, i].Size = new Size(0, 0);
+                }
+                table[start_x, start_y].Size = new Size(50, (end_y - start_y + 1) * 40);
             }
-            table[start_x, start_y].Size = new Size(50, (end_y - start_y + 1) * 40);
-
+            f2 = new Form2(this);
+            f2.Show();
+          
         }
         private void table_Capture(object sender, MouseEventArgs e)
         {
@@ -124,6 +132,7 @@ namespace Project_2
         {
             click = false;
             table = new Label[7, 12];
+            
             for (int i = 0; i < 7; ++i)
             {
                 for (int j = 0; j < 12; ++j)
@@ -134,6 +143,7 @@ namespace Project_2
                   
                     table[i, j].Location = new Point(50 * i, 40 * j);
                     table[i, j].BorderStyle = BorderStyle.FixedSingle;
+                    
                     Controls.Add(table[i, j]);
 
                     table[i, j].MouseDown += new MouseEventHandler(table_MouseDown);
