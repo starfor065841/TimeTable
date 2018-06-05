@@ -34,5 +34,15 @@ namespace Project_2
             colorDialog1.ShowDialog();
             label1.BackColor = colorDialog1.Color;
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

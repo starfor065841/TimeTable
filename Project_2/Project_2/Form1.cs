@@ -36,46 +36,72 @@ namespace Project_2
         }
         private void table_MouseMove(object sender, MouseEventArgs e)
         {
-            Label tb = (Label)sender;
-            Control control1 = (Control)sender;
-            
-            if (e.Button == MouseButtons.Left)
-            {       
-                for (int i = 0; i < 7; ++i)
+            if (radioButton2.Checked)
+            {//normal
+                Label tb = (Label)sender;
+                Control control1 = (Control)sender;
+
+                if (e.Button == MouseButtons.Left)
                 {
-                    for (int j = 0; j < 12; ++j)
+                    for (int i = 1; i < 7; ++i)
                     {
-                        int x = tb.Location.X + e.X;
-                        int y = tb.Location.Y + e.Y;
-                        if (table[i, j].Left <= x && table[i, j].Right >= x && table[i, j].Top <= y && table[i, j].Bottom >= y)
+                        for (int j = 1; j < 12; ++j)
                         {
-                            
-                            //table[i, j].Text = control1.Name + "capture" + i + " " + j + " " + number;
-                            table[i, j].BackColor = Color.Blue;
+                            int x = tb.Location.X + e.X;
+                            int y = tb.Location.Y + e.Y;
+                            if (table[i, j].Left <= x && table[i, j].Right >= x && table[i, j].Top <= y && table[i, j].Bottom >= y)
+                            {
+
+                                //table[i, j].Text = control1.Name + "capture" + i + " " + j + " " + number;
+                                table[i, j].BackColor = Color.Blue;
+                            }
+
                         }
-                       
                     }
+
                 }
-
             }
-
         }
         private void table_MouseDown(object sender, MouseEventArgs e)
         {
             Label tb = (Label)sender;
-            tb.BackColor = Color.AliceBlue;
-            number = 0;
-            for (int i = 0; i < 7; ++i)
+            int x = tb.Location.X + e.X;
+            int y = tb.Location.Y + e.Y;
+            if (radioButton2.Checked)//normal
             {
-                for (int j = 0; j < 12; ++j)
+                //tb.BackColor = Color.AliceBlue;
+                number = 0;
+                for (int i = 1; i < 7; ++i)
                 {
-                    int x = tb.Location.X + e.X;
-                    int y = tb.Location.Y + e.Y;
-                    if (table[i, j].Left <= x && table[i, j].Right >= x && table[i, j].Top <= y && table[i, j].Bottom >= y)
+                    for (int j = 1; j < 12; ++j)
                     {
-                        table[i, j].Text = "capture" + i + " " + j;
-                        start_x = i;
-                        start_y = j;
+                        if (table[i, j].Left <= x && table[i, j].Right >= x && table[i, j].Top <= y && table[i, j].Bottom >= y)
+                        {
+                            //table[i, j].Text = "capture" + i + " " + j;
+                            start_x = i;
+                            start_y = j;
+                        }
+                    }
+                }
+            }
+            else if (radioButton1.Checked)//delete
+            {
+                for (int i = 1; i < 7; ++i)
+                {
+                    for (int j = 1; j < 12; ++j)
+                    {
+                        if (table[i, j].Left <= x && table[i, j].Right >= x && table[i, j].Top <= y && table[i, j].Bottom >= y)
+                        {
+                            int count = tb.Height / 40;
+                            //table[i, j].Text = "";
+                            for (int k = j; k < j + count; ++k)
+                            {
+                                table[i, k].Size = new Size(50, 40);
+                                table[i, k].BackColor = SystemColors.Control;
+                                table[i, k].Text = "";
+                            }
+                            //table[i, j].Size = new Size(50, 40);
+                        }
                     }
                 }
             }
@@ -83,35 +109,67 @@ namespace Project_2
         }
         private void table_MouseUp(object sender, MouseEventArgs e)
         {
-            Label tb = (Label)sender;
-            tb.BackColor = Color.AliceBlue;
-            number = 0;
-            for (int i = 0; i < 7; ++i)
+            
+            if (radioButton2.Checked)//normal
             {
-                for (int j = 0; j < 12; ++j)
+                Label tb = (Label)sender;
+                if (tb.Bottom == 40 || tb.Left == 0)
+                    return;
+                //tb.BackColor = Color.AliceBlue;
+                //tb.Text = tb.Left.ToString();
+                number = 0;
+                for (int i = 1; i < 7; ++i)
                 {
-                    int x = tb.Location.X + e.X;
-                    int y = tb.Location.Y + e.Y;
-                    if (table[i, j].Left <= x && table[i, j].Right >= x && table[i, j].Top <= y && table[i, j].Bottom >= y)
+                    for (int j = 1; j < 12; ++j)
                     {
-                        
-                        end_x = i;
-                        end_y = j;
-                        table[i, j].Text = "capture" + i + " " + j;
+                        int x = tb.Location.X + e.X;
+                        int y = tb.Location.Y + e.Y;
+                        if (table[i, j].Left <= x && table[i, j].Right >= x && table[i, j].Top <= y && table[i, j].Bottom >= y)
+                        {
+                            end_x = i;
+                            if (end_x != start_x)
+                            {
+                                if (end_x < start_x)
+                                {
+                                    int xxx = end_x;
+                                    end_x = start_x;
+                                    start_x = xxx;
+                                }
+                                for (int k = start_x; k <= end_x; ++k)
+                                    table[k, start_y].BackColor = SystemColors.Control;
+
+                                return;
+                            }
+
+
+
+
+                            end_y = j;
+                            table[i, j].Text = "capture" + i + " " + j;
+                        }
                     }
                 }
-            }
-            if (start_y != end_y)
-            {
-                for (int i = start_y + 1; i <= end_y; i++)
+                if (start_y != end_y)
                 {
-                    table[start_x, i].Size = new Size(0, 0);
+
+                    if (start_y > end_y)
+                    {
+                        int sss = start_y;
+                        start_y = end_y;
+                        end_y = sss;
+                    }
+
+                    for (int i = start_y + 1; i <= end_y; i++)
+                    {
+                        table[start_x, i].Size = new Size(0, 0);
+                    }
+
+
+                    table[start_x, start_y].Size = new Size(50, (end_y - start_y + 1) * 40);
                 }
-                table[start_x, start_y].Size = new Size(50, (end_y - start_y + 1) * 40);
+                f2 = new Form2(this);
+                f2.Show();
             }
-            f2 = new Form2(this);
-            f2.Show();
-          
         }
         private void table_Capture(object sender, MouseEventArgs e)
         {
@@ -132,7 +190,8 @@ namespace Project_2
         {
             click = false;
             table = new Label[7, 12];
-            
+            //radioButton1.Checked = false;
+            //radioButton2.Checked = true;
             for (int i = 0; i < 7; ++i)
             {
                 for (int j = 0; j < 12; ++j)
@@ -143,7 +202,7 @@ namespace Project_2
                   
                     table[i, j].Location = new Point(50 * i, 40 * j);
                     table[i, j].BorderStyle = BorderStyle.FixedSingle;
-                    
+                    //table[i,j].BackColor = 
                     Controls.Add(table[i, j]);
 
                     table[i, j].MouseDown += new MouseEventHandler(table_MouseDown);
@@ -157,6 +216,7 @@ namespace Project_2
             table[3, 0].Text = "星期三";
             table[4, 0].Text = "星期四";
             table[5, 0].Text = "星期五";
+            table[6, 0].Text = "星期六";
             table[0, 1].Text = "   0810" + "\r\n" + "     ~" + "\r\n" + "   0900";
             table[0, 2].Text = "   0910" + "\r\n" + "     ~" + "\r\n" + "   1000";
             table[0, 3].Text = "   1010" + "\r\n" + "     ~" + "\r\n" + "   1100";
@@ -169,5 +229,11 @@ namespace Project_2
             table[0, 10].Text = "   1710" + "\r\n" + "     ~" + "\r\n" + "   1800";
             table[0, 11].Text = "   1810" + "\r\n" + "     ~" + "\r\n" + "   1900";
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        
     }
 }
