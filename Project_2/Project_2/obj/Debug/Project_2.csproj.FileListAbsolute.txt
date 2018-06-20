@@ -7,3 +7,34 @@ c:\users\user\documents\visual studio 2015\Projects\Project_2\Project_2\obj\Debu
 c:\users\user\documents\visual studio 2015\Projects\Project_2\Project_2\obj\Debug\Project_2.exe
 c:\users\user\documents\visual studio 2015\Projects\Project_2\Project_2\obj\Debug\Project_2.pdb
 c:\users\user\documents\visual studio 2015\Projects\Project_2\Project_2\obj\Debug\Project_2.Form1.resources
+C:\Users\user\documents\visual studio 2015\Projects\Project_2\Project_2\obj\Debug\Project_2.Form2.resources
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\Project_2.exe.config
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\obj\Debug\Project_2.exe
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\obj\Debug\Project_2.pdb
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\Project_2.exe
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\Project_2.pdb
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\obj\Debug\Project_2.csprojResolveAssemblyReference.cache
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\obj\Debug\Project_2.Form1.resources
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\obj\Debug\Project_2.Form2.resources
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\obj\Debug\Project_2.Properties.Resources.resources
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\obj\Debug\Project_2.csproj.GenerateResource.Cache
+D:\禹竣\Github\TimeTable\Project_2\Project_2\bin\Debug\Project_2.exe.config
+D:\禹竣\Github\TimeTable\Project_2\Project_2\obj\Debug\Project_2.exe
+D:\禹竣\Github\TimeTable\Project_2\Project_2\obj\Debug\Project_2.pdb
+D:\禹竣\Github\TimeTable\Project_2\Project_2\bin\Debug\Project_2.exe
+D:\禹竣\Github\TimeTable\Project_2\Project_2\bin\Debug\Project_2.pdb
+D:\禹竣\Github\TimeTable\Project_2\Project_2\bin\Debug\HtmlAgilityPack.dll
+D:\禹竣\Github\TimeTable\Project_2\Project_2\bin\Debug\HtmlAgilityPack.pdb
+D:\禹竣\Github\TimeTable\Project_2\Project_2\bin\Debug\HtmlAgilityPack.xml
+D:\禹竣\Github\TimeTable\Project_2\Project_2\obj\Debug\Project_2.csprojResolveAssemblyReference.cache
+D:\禹竣\Github\TimeTable\Project_2\Project_2\obj\Debug\Project_2.Form1.resources
+D:\禹竣\Github\TimeTable\Project_2\Project_2\obj\Debug\Project_2.Form2.resources
+D:\禹竣\Github\TimeTable\Project_2\Project_2\obj\Debug\Project_2.Properties.Resources.resources
+D:\禹竣\Github\TimeTable\Project_2\Project_2\obj\Debug\Project_2.csproj.GenerateResource.Cache
+D:\禹竣\Github\TimeTable\Project_2\Project_2\bin\Debug\Database1.mdf
+D:\禹竣\Github\TimeTable\Project_2\Project_2\bin\Debug\Database1_log.ldf
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\Database1.mdf
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\Database1_log.ldf
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\HtmlAgilityPack.xml
