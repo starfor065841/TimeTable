@@ -33,3 +33,8 @@ D:\禹竣\Github\TimeTable\Project_2\Project_2\obj\Debug\Project_2.Properties.Re
 D:\禹竣\Github\TimeTable\Project_2\Project_2\obj\Debug\Project_2.csproj.GenerateResource.Cache
 D:\禹竣\Github\TimeTable\Project_2\Project_2\bin\Debug\Database1.mdf
 D:\禹竣\Github\TimeTable\Project_2\Project_2\bin\Debug\Database1_log.ldf
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\Database1.mdf
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\Database1_log.ldf
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Tsai\Documents\GitHub\TimeTable\Project_2\Project_2\bin\Debug\HtmlAgilityPack.xml

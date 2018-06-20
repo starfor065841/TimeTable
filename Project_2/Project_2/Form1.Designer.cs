@@ -36,7 +36,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(171, 527);
+            this.radioButton1.Location = new System.Drawing.Point(204, 526);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(50, 16);
             this.radioButton1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(109, 527);
+            this.radioButton2.Location = new System.Drawing.Point(142, 526);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(56, 16);
             this.radioButton2.TabIndex = 1;
@@ -59,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(107, 22);
+            this.label1.Location = new System.Drawing.Point(140, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 12);
             this.label1.TabIndex = 2;
@@ -70,7 +70,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(358, 545);
+            this.ClientSize = new System.Drawing.Size(407, 545);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);

@@ -31,10 +31,7 @@ namespace Project_2
         
 
        
-        private void table_MouseHover(object sender, EventArgs e)
-        {
-
-        }
+        
         private void table_MouseMove(object sender, MouseEventArgs e)
         {
             if (radioButton2.Checked)
@@ -44,7 +41,7 @@ namespace Project_2
 
                 if (e.Button == MouseButtons.Left)
                 {
-                    for (int i = 1; i < 7; ++i)
+                    for (int i = 1; i < 8; ++i)
                     {
                         for (int j = 1; j < 12; ++j)
                         {
@@ -72,7 +69,7 @@ namespace Project_2
             {
                 //tb.BackColor = Color.AliceBlue;
                 number = 0;
-                for (int i = 1; i < 7; ++i)
+                for (int i = 1; i < 8; ++i)
                 {
                     for (int j = 1; j < 12; ++j)
                     {
@@ -89,7 +86,7 @@ namespace Project_2
             }
             else if (radioButton1.Checked)//delete
             {
-                for (int i = 1; i < 7; ++i)
+                for (int i = 1; i < 8; ++i)
                 {
                     for (int j = 1; j < 12; ++j)
                     {
@@ -124,7 +121,7 @@ namespace Project_2
                 //tb.BackColor = Color.AliceBlue;
                 //tb.Text = tb.Left.ToString();
                 number = 0;
-                for (int i = 1; i < 7; ++i)
+                for (int i = 1; i < 8; ++i)
                 {
                     for (int j = 1; j < 12; ++j)
                     {
@@ -179,28 +176,17 @@ namespace Project_2
                 f2.Show();
             }
         }
-        private void table_Capture(object sender, MouseEventArgs e)
-        {
-
-        }
-        private void table_MouseClick(object sender, EventArgs e)
-        {
-
-
-
-            //if(tb.BackColor == Color.AliceBlue)
-            //tb.BackColor = Color.AliceBlue;
-        }
-
+     
+  
         bool click;
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
             click = false;
-            table = new Label[7, 12];
+            table = new Label[8, 12];
             //radioButton1.Checked = false;
             //radioButton2.Checked = true;
-            for (int i = 0; i < 7; ++i)
+            for (int i = 0; i < 8; ++i)
             {
                 for (int j = 0; j < 12; ++j)
                 {
@@ -225,6 +211,7 @@ namespace Project_2
             table[4, 0].Text = "Thu";
             table[5, 0].Text = "Fri";
             table[6, 0].Text = "Sat";
+            table[7, 0].Text = "Sun";
             table[0, 1].Text = "   0810" + "\r\n      一" + "\r\n" + "   0900";
             table[0, 2].Text = "   0910" + "\r\n      二" + "\r\n" + "   1000";
             table[0, 3].Text = "   1010" + "\r\n      三" + "\r\n" + "   1100";
@@ -237,10 +224,10 @@ namespace Project_2
             table[0, 10].Text = "   1710" + "\r\n      十" + "\r\n" + "   1800";
             table[0, 11].Text = "   1810" + "\r\n      土" + "\r\n" + "   1900";
 
-            for (int i = 1; i < 7; ++i)
+            for (int i = 1; i < 8; ++i)
                 table[i, 5].BackColor = Color.Orange;//noon
             table[0, 0].BackColor = Color.Black;
-            for (int i = 1; i < 7; ++i)
+            for (int i = 1; i <8; ++i)
                 table[i, 0].BackColor = Color.White;
             for (int i = 1; i < 12; ++i)
                 table[0, i].BackColor = Color.White;
@@ -253,16 +240,16 @@ namespace Project_2
                     table[1, i].BorderStyle = BorderStyle.FixedSingle;
             else if (time.DayOfWeek == DayOfWeek.Tuesday)
                 for (int i = 0; i < 12; ++i)
-                    table[4, i].BorderStyle = BorderStyle.FixedSingle;
+                    table[2, i].BorderStyle = BorderStyle.FixedSingle;
             else if (time.DayOfWeek == DayOfWeek.Wednesday)
                 for (int i = 0; i < 12; ++i)
-                    table[4, i].BorderStyle = BorderStyle.FixedSingle;
+                    table[3, i].BorderStyle = BorderStyle.FixedSingle;
             else if(time.DayOfWeek == DayOfWeek.Thursday)
                 for (int i = 0; i < 12; ++i)
                     table[4, i].BorderStyle = BorderStyle.FixedSingle;
             else if (time.DayOfWeek == DayOfWeek.Friday)
                 for (int i = 0; i < 12; ++i)
-                    table[4, i].BorderStyle = BorderStyle.FixedSingle;
+                    table[5, i].BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
