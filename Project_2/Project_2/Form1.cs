@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Drawing.Drawing2D;
 
 namespace Project_2
 {
@@ -205,7 +206,8 @@ namespace Project_2
                 for (int j = 0; j < 12; ++j)
                 {
                     table[i, j] = new Label();
-                 
+                    //DrawRoundRect(table[i, j]);
+
                     table[i, j].Size = new Size(50, 40);
                   
                     table[i, j].Location = new Point(50 * i, 40 * (j+1));
@@ -269,6 +271,27 @@ namespace Project_2
         {
 
         }
-        
+
+        //圓角邊框
+        private void DrawRoundRect(Label label)
+        {
+            float X = (float)(label.Width);
+            float Y = (float)(label.Height);
+            PointF[] points =
+            {
+               new PointF(2,0),
+               new PointF(X-2,0),
+               new PointF(X,2),
+               new PointF(X,Y-2),
+               new PointF(X-2,Y),
+               new PointF(2,Y),
+               new PointF(0,Y-2),
+               new PointF(0,2),
+           };
+            GraphicsPath path = new GraphicsPath();
+            path.AddLines(points);
+            label.Region = new Region(path);
+        }
+
     }
 }

@@ -19,7 +19,7 @@ namespace Project_2
         private Form1 f;
         String txt;
         ArrayList date = new ArrayList();
-        ArrayList classroom = new ArrayList();
+        List<string> classroom = new List<string>();
         public Form2(Form1 f1)
         {
             InitializeComponent();
@@ -33,8 +33,9 @@ namespace Project_2
         private void button1_Click(object sender, EventArgs e)
         {
             txt = comboBox1.SelectedItem.ToString();
-            f.table[f.start_x, f.start_y].Text = ""  + date[comboBox1.SelectedIndex];
-            f.table[f.start_x, f.start_y].Text += "\r\n";
+            //f.table[f.start_x, f.start_y].Text = ""  + date[comboBox1.SelectedIndex];
+           // f.table[f.start_x, f.start_y].Text += "\r\n" + date[comboBox1.SelectedIndex].ToString().Substring(1,1);
+            //f.table[f.start_x, f.start_y].Text += "\r\n";
             f.table[f.start_x, f.start_y].Text += "\r\n" + txt;
             f.table[f.start_x, f.start_y].Text += "\r\n";
             f.table[f.start_x, f.start_y].Text += "\r\n" + classroom[comboBox1.SelectedIndex];
@@ -64,33 +65,48 @@ namespace Project_2
             HtmlWeb client = new HtmlWeb();
             HtmlAgilityPack.HtmlDocument doc = client.Load("http://course-query.acad.ncku.edu.tw/qry/qry001.php?dept_no=F7");
 
-
-            for (int i = 1; i < 63; ++i)
+            if (f.start_x != 6)
             {
-                if ((i % 11) != 0)
+                for (int i = 1; i < 63; ++i)
                 {
-                    string title = doc.DocumentNode.SelectSingleNode("//html / body / table / tbody / tr[" + i + "] / td[11]").InnerText;
-                    comboBox1.Items.Add(title);
+                    if ((i % 11) != 0)
+                    {
+                        string dateString = doc.DocumentNode.SelectSingleNode("//html/body/table/tbody/tr[" + i + "]/td[17]").InnerText;
+                        if (dateString.Substring(1, 1) == f.start_x.ToString())
+                        {
+                            date.Add(dateString);
+                            string title = doc.DocumentNode.SelectSingleNode("//html / body / table / tbody / tr[" + i + "] / td[11]").InnerText;
+                            dateString += title;
+                            comboBox1.Items.Add(dateString);
+                            string classroomString = doc.DocumentNode.SelectSingleNode("//html/body/table/tbody/tr[" + i + "]/td[18]").InnerText;
+                            classroom.Add(classroomString);
+                        }
+                    }
                 }
+            }
+            else
+            {
+                comboBox1.Items.Add("");
             }
             comboBox1.SelectedIndex = 0;
-
+            /*
             for (int i = 1; i < 63; ++i)
             {
                 if ((i % 11) != 0)
                 {
-                    string title = doc.DocumentNode.SelectSingleNode("//html/body/table/tbody/tr[" + i +"]/td[17]").InnerText;
-                    date.Add(title);
+                    string dateString = doc.DocumentNode.SelectSingleNode("//html/body/table/tbody/tr[" + i +"]/td[17]").InnerText;
+                    date.Add(dateString);
                 }
             }
             for (int i = 1; i < 63; ++i)
             {
                 if ((i % 11) != 0)
                 {
-                    string title = doc.DocumentNode.SelectSingleNode("//html/body/table/tbody/tr[" + i + "]/td[18]").InnerText;
-                    classroom.Add(title);
+                    string classroomString = doc.DocumentNode.SelectSingleNode("//html/body/table/tbody/tr[" + i + "]/td[18]").InnerText;
+                    classroom.Add(classroomString);
                 }
             }
+            */
             //comboBox1.SelectedIndex = comboBox1.Items.Count - 1;
             //textBox1.Enabled = false;
             //comboBox1.SelectedIndex = 0;
