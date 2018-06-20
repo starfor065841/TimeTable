@@ -65,7 +65,7 @@ namespace Project_2
             HtmlWeb client = new HtmlWeb();
             HtmlAgilityPack.HtmlDocument doc = client.Load("http://course-query.acad.ncku.edu.tw/qry/qry001.php?dept_no=F7");
 
-            if (f.start_x != 6)
+            if (f.start_x != 6 && f.start_x != 7)
             {
                 for (int i = 1; i < 63; ++i)
                 {
