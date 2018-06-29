@@ -19,8 +19,10 @@ namespace Project_2
         private Form1 f;
         String txt;
         String choose;
-        ArrayList date = new ArrayList();
+        List<string> date = new List<string>();
         List<string> classroom = new List<string>();
+        char[] delimiter = { '[', ']' };
+        String[] subdate;
         public Form2(Form1 f1)
         {
             InitializeComponent();
@@ -33,14 +35,182 @@ namespace Project_2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            txt = comboBox2.SelectedItem.ToString();
-            //f.table[f.start_x, f.start_y].Text = ""  + date[comboBox1.SelectedIndex];
-           // f.table[f.start_x, f.start_y].Text += "\r\n" + date[comboBox1.SelectedIndex].ToString().Substring(1,1);
-            //f.table[f.start_x, f.start_y].Text += "\r\n";
-            f.table[f.start_x, f.start_y].Text += "\r\n" + txt;
-            f.table[f.start_x, f.start_y].Text += "\r\n";
-            f.table[f.start_x, f.start_y].Text += "\r\n" + classroom[comboBox2.SelectedIndex];
-            f.table[f.start_x, f.start_y].BackColor = label1.BackColor;
+            if (comboBox2.SelectedItem != null)
+            {
+                txt = comboBox2.SelectedItem.ToString();
+                //f.table[f.start_x, f.start_y].Text = ""  + date[comboBox1.SelectedIndex];
+                // f.table[f.start_x, f.start_y].Text += "\r\n" + date[comboBox1.SelectedIndex].ToString().Substring(1,1);
+                //f.table[f.start_x, f.start_y].Text += "\r\n";
+                //f.table[f.start_x, f.start_y].Text += "\r\n" + txt;
+                //f.table[f.start_x, f.start_y].Text += "\r\n";
+                //f.table[f.start_x, f.start_y].Text += "\r\n" + classroom[comboBox2.SelectedIndex];
+                //f.table[f.start_x, f.start_y].BackColor = label1.BackColor;
+
+                //不同日期
+                subdate = date[comboBox2.SelectedIndex].Split(delimiter);
+                for(int i = 1; i < subdate.Length; i = i + 2)
+                {
+                    int start = 0;
+                    int end = 0;
+                    if (subdate[i + 1].Length > 1)
+                    {
+                        if (subdate[i + 1].Substring(0,1) == "N")
+                        {
+                            start = 5;
+                        }
+                        else if (subdate[i + 1].Substring(0, 1) == "A")
+                        {
+                            start = 11;
+                        }
+                        else if (subdate[i + 1].Substring(0, 1) == "B")
+                        {
+                            start = 12;
+                        }
+                        else if (subdate[i + 1].Substring(0, 1) == "C")
+                        {
+                            start = 13;
+                        }
+                        else if (subdate[i + 1].Substring(0, 1) == "D")
+                        {
+                            start = 14;
+                        }
+                        else if (subdate[i + 1].Substring(0, 1) == "E")
+                        {
+                            start = 15;
+                        }
+                        else
+                        {
+                            start = int.Parse(subdate[i + 1].Substring(0, 1));
+                            //第五節往下一節
+                            if (start >= 5)
+                            {
+                                start++;
+                            }
+                        }
+
+                        if (subdate[i + 1].Substring(2) == "N")
+                        {
+                            end = 5;
+                        }
+                        else if (subdate[i + 1].Substring(2) == "A")
+                        {
+                            end = 11;
+                        }
+                        else if (subdate[i + 1].Substring(2) == "B")
+                        {
+                            end = 12;
+                        }
+                        else if (subdate[i + 1].Substring(2) == "C")
+                        {
+                            end = 13;
+                        }
+                        else if (subdate[i + 1].Substring(2) == "D")
+                        {
+                            end = 14;
+                        }
+                        else if (subdate[i + 1].Substring(2) == "E")
+                        {
+                            end = 15;
+                        }
+                        else
+                        {
+                            end = int.Parse(subdate[i + 1].Substring(2));
+                            //第五節往下一節
+                            if (end >= 5)
+                            {
+                                end++;
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        if(subdate[i + 1].Substring(0) == "N")
+                        {
+                            start = 5;
+                            end = 5;
+                        }
+                        else if (subdate[i + 1].Substring(0) == "A")
+                        {
+                            start = 11;
+                            end = 11;
+                        }
+                        else if (subdate[i + 1].Substring(0) == "B")
+                        {
+                            start = 12;
+                            end = 12;
+                        }
+                        else if (subdate[i + 1].Substring(0) == "C")
+                        {
+                            start = 13;
+                            end = 13;
+                        }
+                        else if (subdate[i + 1].Substring(0) == "D")
+                        {
+                            start = 14;
+                            end = 14;
+                        }
+                        else if (subdate[i + 1].Substring(0) == "E")
+                        {
+                            start = 15;
+                            end = 15;
+                        }
+                        else
+                        {
+                            start = int.Parse(subdate[i + 1].Substring(0));
+                            end = int.Parse(subdate[i + 1].Substring(0));
+                            //第五節往下一節
+                            if(start >= 5)
+                            {
+                                start++;
+                            }
+                            if (end >= 5)
+                            {
+                                end++;
+                            }
+                        }
+                    }
+                    if (start != end)
+                    {
+
+                        if (start > end)
+                        {
+                            int sss = start;
+                            start = end;
+                            end = sss;
+                        }
+
+                        for (int j = start + 1; j <= end; j++)
+                        {
+                            f.table[int.Parse(subdate[i]), j].Size = new Size(0, 0);
+                        }
+
+                        f.table[int.Parse(subdate[i]), start].Size = new Size(50, (end - start + 1) * 40);
+                    }
+                    f.table[int.Parse(subdate[i]), start].Text += "\r\n" + txt;
+                    f.table[int.Parse(subdate[i]), start].Text += "\r\n";
+                    f.table[int.Parse(subdate[i]), start].Text += "\r\n" + classroom[comboBox2.SelectedIndex];
+                    f.table[int.Parse(subdate[i]), start].BackColor = label1.BackColor;
+
+                }
+
+                /*
+                if (date[comboBox2.SelectedIndex].Length >= 6)
+                {
+                   foreach(var substring in subdate)
+                    {
+                        Console.WriteLine(substring);
+                    }
+
+                }
+
+                */
+            }
+            else
+            {
+                txt = "";
+                f.table[f.start_x, f.start_y].Text += txt;
+            }
             //f.f2.Dispose();            
             this.Dispose();
         }
@@ -83,8 +253,8 @@ namespace Project_2
                 k++;
             }
 
-            if (f.start_x != 6 && f.start_x != 7)
-            {
+            //if (f.start_x != 6 && f.start_x != 7)
+            //{
                 for (int i = 1; i < k; ++i)
                 {
                     if ((i % 11) != 0)
@@ -101,13 +271,18 @@ namespace Project_2
                         }
                     }
                 }
-            }
+            //}
+            /*
             else
             {
                 comboBox2.Items.Add("");
             }
+            */
 
-            comboBox2.SelectedIndex = 0;
+            if (comboBox2.Items.Count > 0)
+            {
+                comboBox2.SelectedIndex = 0;
+            }
 
             for (int i = 1; i < k; ++i)
             {
@@ -351,8 +526,8 @@ namespace Project_2
             date.Clear();
             classroom.Clear();
 
-            if (f.start_x != 6 && f.start_x != 7)
-            {
+            //if (f.start_x != 6 && f.start_x != 7)
+            //{
                 for (int i = 1; i < k; ++i)
                 {
                     if ((i % 11) != 0)
@@ -369,28 +544,34 @@ namespace Project_2
                         }
                     }
                 }
-            }
+            //}
+            /*
             else
             {
                 comboBox2.Items.Add("");
             }
-
-            comboBox2.SelectedIndex = 0;
-
-            for (int i = 1; i < k; ++i)
+            */
+            if (comboBox2.Items.Count > 0)
             {
-                if ((i % 11) != 0)
-                {
-                    string dateString = doc.DocumentNode.SelectSingleNode("//html/body/table/tbody/tr[" + i + "]/td[17]").InnerText;
-                    date.Add(dateString);
-                }
+                comboBox2.SelectedIndex = 0;
             }
-            for (int i = 1; i < k; ++i)
+            if (f.start_x != 6 && f.start_x != 7)
             {
-                if ((i % 11) != 0)
+                for (int i = 1; i < k; ++i)
                 {
-                    string classroomString = doc.DocumentNode.SelectSingleNode("//html/body/table/tbody/tr[" + i + "]/td[18]").InnerText;
-                    classroom.Add(classroomString);
+                    if ((i % 11) != 0)
+                    {
+                        string dateString = doc.DocumentNode.SelectSingleNode("//html/body/table/tbody/tr[" + i + "]/td[17]").InnerText;
+                        date.Add(dateString);
+                    }
+                }
+                for (int i = 1; i < k; ++i)
+                {
+                    if ((i % 11) != 0)
+                    {
+                        string classroomString = doc.DocumentNode.SelectSingleNode("//html/body/table/tbody/tr[" + i + "]/td[18]").InnerText;
+                        classroom.Add(classroomString);
+                    }
                 }
             }
         }

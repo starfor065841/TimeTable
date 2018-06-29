@@ -44,7 +44,7 @@ namespace Project_2
                 {
                     for (int i = 1; i < 8; ++i)
                     {
-                        for (int j = 1; j < 12; ++j)
+                        for (int j = 1; j < 16; ++j)
                         {
                             int x = tb.Location.X + e.X;
                             int y = tb.Location.Y + e.Y;
@@ -72,7 +72,7 @@ namespace Project_2
                 number = 0;
                 for (int i = 1; i < 8; ++i)
                 {
-                    for (int j = 1; j < 12; ++j)
+                    for (int j = 1; j < 16; ++j)
                     {
                         //if (i == 5) continue;
 
@@ -89,7 +89,7 @@ namespace Project_2
             {
                 for (int i = 1; i < 8; ++i)
                 {
-                    for (int j = 1; j < 12; ++j)
+                    for (int j = 1; j < 16; ++j)
                     {
                         if (table[i, j].Left <= x && table[i, j].Right >= x && table[i, j].Top <= y && table[i, j].Bottom >= y)
                         {
@@ -124,7 +124,7 @@ namespace Project_2
                 number = 0;
                 for (int i = 1; i < 8; ++i)
                 {
-                    for (int j = 1; j < 12; ++j)
+                    for (int j = 1; j < 16; ++j)
                     {
                         //if (i == 5) continue;
 
@@ -155,6 +155,24 @@ namespace Project_2
                         }
                     }
                 }
+                //mouse move 顏色改回來
+                if (start_y != end_y)
+                {
+
+                    if (start_y > end_y)
+                    {
+                        int sss = start_y;
+                        start_y = end_y;
+                        end_y = sss;
+                    }
+
+                    for (int i = start_y ; i <= end_y; i++)
+                    {
+                        table[start_x, i].BackColor = SystemColors.Control;
+                    }
+                }
+                //label 合併
+                /*
                 if (start_y != end_y)
                 {
 
@@ -173,6 +191,7 @@ namespace Project_2
 
                     table[start_x, start_y].Size = new Size(50, (end_y - start_y + 1) * 40);
                 }
+                */
                 f2 = new Form2(this);
                 f2.Show();
             }
@@ -184,12 +203,12 @@ namespace Project_2
         private void Form1_Load_1(object sender, EventArgs e)
         {
             click = false;
-            table = new Label[8, 12];
+            table = new Label[8, 16];
             //radioButton1.Checked = false;
             //radioButton2.Checked = true;
             for (int i = 0; i < 8; ++i)
             {
-                for (int j = 0; j < 12; ++j)
+                for (int j = 0; j < 16; ++j)
                 {
                     table[i, j] = new Label();
                     //DrawRoundRect(table[i, j]);
@@ -218,13 +237,18 @@ namespace Project_2
             table[0, 2].Text = "   0910" + "\r\n      二" + "\r\n" + "   1000";
             table[0, 3].Text = "   1010" + "\r\n      三" + "\r\n" + "   1100";
             table[0, 4].Text = "   1110" + "\r\n      四" + "\r\n" + "   1200";
-            table[0, 5].Text = "   1210" + "\r\n      五" + "\r\n" + "   1300";
-            table[0, 6].Text = "   1310" + "\r\n      六" + "\r\n" + "   1400";
-            table[0, 7].Text = "   1410" + "\r\n      七" + "\r\n" + "   1500";
-            table[0, 8].Text = "   1510" + "\r\n      八" + "\r\n" + "   1600";
-            table[0, 9].Text = "   1610" + "\r\n      九" + "\r\n" + "   1700";
-            table[0, 10].Text = "   1710" + "\r\n      十" + "\r\n" + "   1800";
-            table[0, 11].Text = "   1810" + "\r\n      土" + "\r\n" + "   1900";
+            table[0, 5].Text = "   1210" + "\r\n      N" + "\r\n" + "   1300";
+            table[0, 6].Text = "   1310" + "\r\n      五" + "\r\n" + "   1400";
+            table[0, 7].Text = "   1410" + "\r\n      六" + "\r\n" + "   1500";
+            table[0, 8].Text = "   1510" + "\r\n      七" + "\r\n" + "   1600";
+            table[0, 9].Text = "   1610" + "\r\n      八" + "\r\n" + "   1700";
+            table[0, 10].Text = "   1710" + "\r\n      九" + "\r\n" + "   1800";
+            table[0, 11].Text = "   1810" + "\r\n     A" + "\r\n" + "   1900";
+            table[0, 12].Text = "   1910" + "\r\n     B" + "\r\n" + "   2000";
+            table[0, 13].Text = "   2010" + "\r\n      C" + "\r\n" + "   2100";
+            table[0, 14].Text = "   2110" + "\r\n      D" + "\r\n" + "   2200";
+            table[0, 15].Text = "   2210" + "\r\n      E" + "\r\n" + "   2300";
+
 
             for (int i = 1; i < 8; ++i)
                 table[i, 5].BackColor = Color.Orange;//noon
